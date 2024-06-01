@@ -1,0 +1,79 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.form__email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__email label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.form__email input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.form__email input:focus {
+  outline: none;
+}
+
+.form__number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form__number label {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.form__number input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.form__number input::-webkit-outer-spin-button,
+.form__number input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form__number input:focus {
+  outline: none;
+}
+
+.form__button {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form__button:hover {
+  background-color: #0056b3;
+}
+
+.form__emailError {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
