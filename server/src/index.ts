@@ -1,8 +1,8 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
-import { json } from "stream/consumers";
 const cors = require("cors");
 const fs = require("fs");
+const path = require("path");
 dotenv.config();
 
 const app: Express = express();
@@ -13,7 +13,7 @@ app.use(express.json());
 app.post("/getuser", (req: Request, res: Response) => {
   const number = req.body.number.replace("-", "").replace("-", "");
   try {
-    const data = fs.readFileSync(__dirname + "/info.json");
+    const data = fs.readFileSync(path.join(__dirname, "info.json"));
     const users = JSON.parse(data);
     const foundUser = users.find((item: { email: string; number: string }) => {
       if (item.email === req.body.email) {

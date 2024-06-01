@@ -12,12 +12,14 @@ function Form({ setUser, setLoading, loading, setUserNotFound }: FormProps) {
   const [number, setNumber] = useState<string>("");
   const [emailInputError, setEmailInputError] = useState<boolean>(false);
   function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setEmail(e.target.value);
     if (
-      e.target.value.includes("@") &&
-      e.target.value.includes(".") &&
-      e.target.value.length > 5
+      String(e.target.value)
+        .toLowerCase()
+        .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        )
     ) {
+      setEmail(e.target.value);
       setEmailInputError(false);
     } else {
       setEmailInputError(true);
@@ -46,7 +48,6 @@ function Form({ setUser, setLoading, loading, setUserNotFound }: FormProps) {
       alert("Please enter email");
       return;
     }
-    console.log(loading);
     if (controllerRef.current) {
       controllerRef.current.abort();
     }
